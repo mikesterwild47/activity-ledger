@@ -35,8 +35,6 @@ The API listens on `http://localhost:5080` and seeds two tenants, Contoso and Fa
 
 Customers have reported the problems below. Work through them in order. For each one, find the root cause, explain it, and make the fix.
 
-Think out loud. How you investigate matters more than how many you finish.
-
 **1. Newest events are missing.**
 > "The first page of our activity log never shows the most recent events. They don't appear anywhere."
 
