@@ -3,7 +3,7 @@
 set -euo pipefail
 
 BASE_URL="${BASE_URL:-http://localhost:5080}"
-TENANT="${1:-33333333-3333-3333-3333-333333333333}"
+TENANT="${1:-$(uuidgen | tr "[:upper:]" "[:lower:]")}"
 COUNT="${2:-50}"
 
 for i in $(seq 1 "$COUNT"); do
@@ -14,4 +14,4 @@ done
 
 sleep 2
 stored=$(curl -s "$BASE_URL/tenants/$TENANT/events?pageSize=1" | grep -o '"totalCount":[0-9]*' | cut -d: -f2)
-echo "Sent $COUNT events, stored $stored."
+echo "Tenant $TENANT: sent $COUNT events, stored $stored."
